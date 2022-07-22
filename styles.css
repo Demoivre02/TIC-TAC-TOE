@@ -1,0 +1,302 @@
+:root{
+    --bodycolor:#f5eddc;
+    --bordercolor: #a2b5bb;
+    --textcolor:#eb1d36;
+    --inputcolor: #cfd2cf;
+    --inputborderradius: .8em;
+    --inputpadding: 1.3em;
+    --inputfontsize: 1.5rem;
+    --wordspacing: 5px;
+    --letterspacing: 3px;
+    --burgercolor:#a2b5bb;
+    --linescolor:#eb1d36;
+}
+
+* *::after *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    background-color: var(--bodycolor);
+}
+header{ 
+    margin-block: 1em;
+    width: 100%;
+    transform: translateY(30%);
+    color: var(--textcolor);
+}
+ul{
+    background-color: var(--inputcolor);
+    border-radius: 15px;
+    backdrop-filter: 20px;
+    margin:auto;
+    overflow: hidden;
+    width: 70%;
+    padding: .6em 1em;
+    border: 1px solid red;
+    opacity: 0;
+    display: none;
+    transition: opacity,display 2s ease-in;
+}
+.fly{
+    display: block;
+    opacity: 1;   
+}
+ 
+li{
+    list-style: none;
+}
+li a{
+    text-decoration: none;
+    color: var(--textcolor);
+    text-transform: uppercase;
+}
+h3{
+    font-size: 1rem;
+}
+#burger{
+    border: 1px solid var(--burgercolor);
+    box-shadow: 2px 2px 5px (var(--inputcolor));
+    width: 10%;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    padding: .5em;
+    margin: 1em 1em 1em 2em;
+    max-width: 10%;
+}
+
+.lines2,.lines1,.lines3{
+    height: 1.7px;
+    background-color: red !important;
+    margin-block: .3em;
+}
+.lines2{
+    width: 60%;
+    max-width: 100%;
+}
+.lines3{
+    width: 40%;
+    max-width: 100%;
+}
+.lines1{
+    width: 60%;
+    max-width: 100%;
+}
+h2{
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    word-spacing: var(--wordspacing);
+    letter-spacing: var(--letterspacing);
+
+}
+.parent{
+   display: grid;
+   width: 100%;
+    grid-template-columns: 2.2cm 2.8cm 2.2cm ;
+    align-items: center;
+    justify-content: center; 
+   gap:0;
+   margin: auto;
+   position: absolute;
+   place-items: centre;
+   transform: translateY(30%);
+
+}
+.result{
+    font-size: 1rem;
+    margin: auto;
+    word-spacing: var(--wordspacing);
+    letter-spacing: var(--letterspacing);
+    text-transform: uppercase;
+    transition-property: font-size,word-spacing,letter-spacing;
+    transition:  2s ease-out;
+}
+
+.children{
+    margin: auto;
+    width: 100px ;
+    height: 100px;
+    border: 3px solid var(--bordercolor);
+    border-left: none;
+    border-top: none;
+    color: var(--textcolor);
+    font-size: 3rem;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.children:nth-child(3n){
+    border-right: none;
+}
+.children:nth-child(6)~ .children{
+    border-bottom: none;
+}
+input,button{
+    background-color: var(--inputcolor);
+    color: var(--textcolor);
+    padding-inline: var(--inputpadding);
+    border-radius: var(--inputborderradius);
+    font-size: var(--inputfontsize);
+    margin-block-end: var(--wordspacing);
+    font-size: 1rem;
+}
+input:focus,button:focus{
+    background-color: var(--textcolor);
+    color: var(--inputcolor);
+}
+.highlight{
+    background-color: var(--bodycolor);
+    animation-name: light ;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+@keyframes light{
+    0% {
+    background-color: var(--bodycolor);
+    }
+    50%{
+    background-color: var(--bordercolor);
+    }
+    100%{
+    background-color: bisque;
+    }
+}
+.animate{
+    animation-name: animate;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+@keyframes animate {
+    form{ letter-spacing: 5px;
+        font-size: 1rem;
+        word-spacing: 7px;}
+    to{ letter-spacing: 10px;
+        font-size: 2.5rem;
+        word-spacing: 12px;}
+}
+@media screen and (min-width: 550px){
+  ul{
+      padding: 0;
+      border-radius: 3px;
+      display: block;
+      opacity: 1;
+      width: 25%;
+      position: absolute;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      transform: translateX(-60%);
+  }
+  .fly{
+      transform: translateX(0%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+  }
+   ul li {
+        transform: translateX(-20%);
+  }
+  #burger{
+      margin: 1em 0 1em 0;
+      width: 6%;
+  }
+ }
+ @media only screen and (min-width: 670px) and (max-width:800px){
+    ul{
+        padding: 0;
+        border-radius: 3px;
+        display: block;
+        opacity: 1;
+        width: 25%;
+        position: absolute;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        transform: translateX(-70%);
+        z-index: 1000;
+    }
+    .fly{
+        transform: translateX(0%);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+     ul li {
+          transform: translateX(-30%);
+    }
+    #burger{
+        margin: 1em 0 1em 0;
+        width: 6%;
+    }
+ }
+ @media only screen and (min-width: 800px) and (max-width:1000px){
+    ul{
+        padding: 0;
+        border-radius: 3px;
+        display: block;
+        opacity: 1;
+        width: 20%;
+        position: absolute;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        transform: translateX(-60%);
+        z-index: 1000;
+    }
+    .fly{
+        transform: translateX(0%);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+     ul li {
+          transform: translateX(-23%);
+    }
+    #burger{
+        margin: 1em 0 1em 0;
+        width: 5%;
+    }
+ }
+ 
+ @media only screen and (min-width: 1000px) and (max-width:1440px){
+    ul{
+        padding: 0;
+        border-radius: 3px;
+        display: block;
+        opacity: 1;
+        width: 15%;
+        position: absolute;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        transform: translateX(-60%);
+        z-index: 1000;
+    }
+    .fly{
+        transform: translateX(0%);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+     ul li {
+          transform: translateX(-20%);
+    }
+    #burger{
+        margin: 1em 0 1em 0;
+        width: 5%;
+    }
+ }
+ 
